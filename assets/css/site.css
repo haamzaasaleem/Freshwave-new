@@ -104,7 +104,7 @@ h3 { font-size: 1.3rem; letter-spacing: 0; }
 .topbar a { color: var(--white); text-decoration: none; }
 .topbar a:hover { text-decoration: underline; }
 .topbar__area { display: none; }
-@media (min-width: 720px) { .topbar__area { display: block; } }
+@media (min-width: 1024px) { .topbar__area { display: block; } }
 
 .header {
   position: sticky; top: 0; z-index: 50;
@@ -158,8 +158,8 @@ h3 { font-size: 1.3rem; letter-spacing: 0; }
   display: grid; gap: clamp(36px, 5vw, 64px);
   grid-template-columns: 1fr;
 }
-@media (min-width: 940px) {
-  .hero .wrap { grid-template-columns: 1.2fr 1fr; align-items: center; }
+@media (min-width: 860px) {
+  .hero .wrap { grid-template-columns: 1.15fr 1fr; align-items: center; }
 }
 .hero__lede {
   font-size: clamp(1.08rem, 1.6vw, 1.22rem);
@@ -344,8 +344,8 @@ h3 { font-size: 1.3rem; letter-spacing: 0; }
 .details .mono { display: block; color: var(--ink-3); margin-bottom: 4px; }
 .details a, .details address, .details .big {
   font-family: var(--f-head); font-stretch: 108%; font-weight: 650;
-  font-size: 1.3rem; text-decoration: none; font-style: normal;
-  overflow-wrap: anywhere;
+  font-size: clamp(1.02rem, 4.2vw, 1.3rem); text-decoration: none; font-style: normal;
+  overflow-wrap: break-word;
 }
 .details a:hover { color: var(--teal); text-decoration: underline; text-underline-offset: 4px; }
 
@@ -448,8 +448,8 @@ h3 { font-size: 1.3rem; letter-spacing: 0; }
 .picker:not(.is-ready) .picker__panel + .picker__panel {
   border-top: 1px solid var(--rule); margin-top: 40px;
 }
-@media (min-width: 900px) {
-  .picker__panel { grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: center; }
+@media (min-width: 768px) {
+  .picker__panel { grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
 }
 
 .media-stack { position: relative; padding: 0 12% 12% 0; }
@@ -516,8 +516,8 @@ html:has(.jump) { scroll-padding-top: 150px; }
 .feature { padding: clamp(56px, 8vw, 104px) 0; border-bottom: 1px solid var(--rule); }
 .feature:nth-of-type(even) { background: var(--white); }
 .feature .wrap { display: grid; gap: 36px; }
-@media (min-width: 940px) {
-  .feature .wrap { grid-template-columns: 1fr 1.05fr; gap: 72px; align-items: center; }
+@media (min-width: 820px) {
+  .feature .wrap { grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
   .feature--flip .media-stack { order: 2; }
 }
 .feature__tag { display: block; color: var(--teal); margin-bottom: 14px; }
@@ -553,11 +553,93 @@ html:has(.jump) { scroll-padding-top: 150px; }
 .section--ink .section__head a { color: var(--white); }
 
 .feature .media-stack > img { aspect-ratio: 4 / 4.4; }
-@media (min-width: 940px) {
+@media (min-width: 820px) {
   .feature .wrap { grid-template-columns: 1.1fr 1fr; }
   .feature--flip .wrap { grid-template-columns: 1fr 1.1fr; }
 }
 @media (min-width: 620px) {
   .feature .checklist--2 { columns: 1; }
   .feature .checklist--2 li:last-child { border-bottom: 0; }
+}
+
+/* ==========================================================
+   Responsive refinements
+   ========================================================== */
+
+/* Large screens */
+@media (min-width: 1600px) {
+  :root { --wrap: 1300px; }
+  body { font-size: 18px; }
+}
+
+/* Hero photos on large screens: give them more room */
+@media (min-width: 1180px) {
+  .hero__photos { grid-template-columns: 1.1fr 0.8fr; gap: 18px; }
+}
+
+/* Tablet portrait: stop single-column photos getting huge */
+@media (min-width: 560px) and (max-width: 859px) {
+  .hero__photos { max-width: 600px; }
+}
+@media (min-width: 560px) and (max-width: 819px) {
+  .feature .media-stack { max-width: 600px; }
+  .pair article img { aspect-ratio: 16 / 9; }
+}
+
+/* Gallery on phones and tablets: lead photo full width, then a 2x2 grid */
+@media (max-width: 799px) {
+  .work figure:first-child { grid-column: 1 / -1; }
+  .work figure:first-child img { aspect-ratio: 4 / 3; object-position: center 60%; }
+}
+
+/* Phones & tablets: caption below the photo, inset photo smaller */
+@media (max-width: 1023px) {
+  .media-stack { padding: 0 0 18% 0; }
+  .media-stack figure { width: 36%; border-width: 6px; }
+  .media-stack__cap { position: static; max-width: 58%; padding-top: 10px; }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  .picker .checklist--2 { columns: 1; }
+  .picker .checklist--2 li:last-child { border-bottom: 0; }
+}
+
+/* Small phones */
+@media (max-width: 599px) {
+  .topbar .wrap { justify-content: center; }
+  .topbar__email { display: none; }
+
+
+  .hero__photos figure:last-child { margin-bottom: 32px; }
+  .hero__actions .btn { flex: 1 1 100%; justify-content: center; }
+  .actions .btn, .feature .btn, .pair .btn, .form__foot .btn { width: 100%; justify-content: center; }
+
+  .section__head { margin-bottom: 28px; }
+  .footer__base { flex-direction: column; }
+}
+
+/* Very narrow phones (320px) */
+@media (max-width: 359px) {
+  :root { --gutter: 14px; }
+  body { font-size: 16px; }
+  .brand img { width: 140px; }
+  h1 { font-size: 2.05rem; }
+  .picker__tab { padding: 12px 8px; }
+  .picker__tab strong { font-size: 0.92rem; }
+}
+
+/* Touch devices: comfortable tap targets */
+@media (pointer: coarse) {
+  .nav__toggle { min-height: 44px; min-width: 64px; }
+  .link, .callband a.mono { display: inline-block; padding: 10px 0; }
+  .callband__phone { padding: 6px 0; }
+  .topbar a { display: inline-block; padding: 6px 0; }
+  .footer li a { display: inline-block; padding: 8px 0; }
+  .footer li { margin-bottom: 0; }
+  .jump a { padding: 11px 14px; }
+}
+
+/* Phones in landscape: don't let sticky bars eat the screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  .header, .jump { position: static; }
+  html, html:has(.jump) { scroll-padding-top: 16px; }
 }
