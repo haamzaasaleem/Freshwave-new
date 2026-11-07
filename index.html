@@ -93,57 +93,96 @@
 <section class="section" aria-labelledby="services-title">
   <div class="wrap">
     <div class="section__head">
-      <h2 id="services-title">Three kinds of spaces, cleaned properly.</h2>
-      <p>Every visit follows a checklist we set up with you, so the job is the same high standard each time, not just the first time.</p>
+      <h2 id="services-title">What do you need cleaned?</h2>
+      <p>Pick a space to see what&rsquo;s covered. Every visit follows a checklist we set up with you, so the standard doesn&rsquo;t slip after the first clean.</p>
     </div>
 
-    <div class="services">
-      <article class="service">
-        <div>
+    <div class="picker" data-picker>
+      <div class="picker__tabs" role="tablist" aria-label="Type of space">
+        <button class="picker__tab" type="button" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5.5h4V20"/></svg>
+          <span><strong>Home</strong><small>Houses, apartments, condos</small></span>
+        </button>
+        <button class="picker__tab" type="button" role="tab" id="tab-office" aria-controls="panel-office" aria-selected="false" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V3h10v18"/><path d="M15 9h4v12"/><path d="M3 21h18"/><path d="M8 7h1.5M10.5 7H12M8 11h1.5M10.5 11H12M8 15h1.5M10.5 15H12"/></svg>
+          <span><strong>Office</strong><small>Offices &amp; commercial spaces</small></span>
+        </button>
+        <button class="picker__tab" type="button" role="tab" id="tab-airbnb" aria-controls="panel-airbnb" aria-selected="false" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8 20 3"/><path d="M16.5 6.5 19 9M14.5 8.5l2 2"/></svg>
+          <span><strong>Airbnb</strong><small>Short-term rental turnovers</small></span>
+        </button>
+      </div>
+
+      <div class="picker__panel" role="tabpanel" id="panel-home" aria-labelledby="tab-home">
+        <div class="media-stack">
+          <img src="assets/img/kitchen-island.jpg" srcset="assets/img/kitchen-island-sm.jpg 540w, assets/img/kitchen-island.jpg 1080w" sizes="(min-width: 900px) 42vw, 88vw" width="1080" height="1440" alt="Kitchen island and cabinets cleaned and cleared" loading="lazy">
+          <figure><img src="assets/img/bathroom-sm.jpg" width="540" height="720" alt="Bathroom vanity with polished granite counter" loading="lazy"></figure>
+          <p class="media-stack__cap mono">Kitchen &amp; bathroom &middot; our work</p>
+        </div>
+        <div class="picker__body">
           <h3>Home cleaning</h3>
-          <span class="service__for mono">Houses, apartments, condos</span>
+          <p>Every room covered: surfaces wiped, floors done, kitchen and bathrooms properly sanitized. Book a regular visit to stay on top of things, or a one-off deep clean when the house needs a reset.</p>
+          <ul class="checklist checklist--2">
+            <li>Routine or deep-clean options</li>
+            <li>Kitchen &amp; bathroom sanitizing</li>
+            <li>Dusting, vacuuming, floor care</li>
+            <li>Eco-friendly products available</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="contact/?service=home#quote">Get a home cleaning quote</a>
+            <a class="link" href="services/#home">More detail</a>
+          </div>
         </div>
-        <p>Every room covered: surfaces wiped, floors done, kitchen and bathrooms properly cleaned. Book a routine visit or a one-off deep clean, and we&rsquo;ll fit the visit around your schedule.</p>
-        <ul class="checklist">
-          <li>Routine maintenance or deep-clean options</li>
-          <li>Detailed kitchen &amp; bathroom sanitizing</li>
-          <li>Dusting, vacuuming and floor care</li>
-          <li>Eco-friendly products available</li>
-        </ul>
-      </article>
+      </div>
 
-      <article class="service">
-        <div>
-          <h3>Office &amp; commercial</h3>
-          <span class="service__for mono">Offices, lobbies, shared spaces</span>
+      <div class="picker__panel" role="tabpanel" id="panel-office" aria-labelledby="tab-office">
+        <div class="media-stack">
+          <img src="assets/img/kitchen-galley.jpg" srcset="assets/img/kitchen-galley-sm.jpg 540w, assets/img/kitchen-galley.jpg 1080w" sizes="(min-width: 900px) 42vw, 88vw" width="1080" height="1440" alt="Long kitchen counter and tile floor cleaned" loading="lazy">
+          <figure><img src="assets/img/bathroom-sm.jpg" width="540" height="720" alt="Bathroom vanity with granite counter, cleaned" loading="lazy"></figure>
+          <p class="media-stack__cap mono">Kitchens, restrooms &amp; floors</p>
         </div>
-        <p>We keep lobbies, offices, common areas and restrooms clean and presentable for staff and visitors, and we schedule around your opening hours so work isn&rsquo;t interrupted.</p>
-        <ul class="checklist">
-          <li>Office, lobby &amp; common-area upkeep</li>
-          <li>Restroom cleaning &amp; sanitizing</li>
-          <li>Trash removal &amp; surface disinfecting</li>
-          <li>Flexible scheduling for minimal disruption</li>
-        </ul>
-      </article>
+        <div class="picker__body">
+          <h3>Office &amp; commercial cleaning</h3>
+          <p>Lobbies, offices, break areas and restrooms kept clean and presentable for your staff and visitors. We work around your opening hours so cleaning never gets in the way of business.</p>
+          <ul class="checklist checklist--2">
+            <li>Office, lobby &amp; common areas</li>
+            <li>Restroom cleaning &amp; sanitizing</li>
+            <li>Trash removal &amp; disinfecting</li>
+            <li>Scheduled around your hours</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="contact/?service=office#quote">Get an office cleaning quote</a>
+            <a class="link" href="services/#office">More detail</a>
+          </div>
+        </div>
+      </div>
 
-      <article class="service">
-        <div>
-          <h3>Airbnb turnovers</h3>
-          <span class="service__for mono">Short-term &amp; vacation rentals</span>
+      <div class="picker__panel" role="tabpanel" id="panel-airbnb" aria-labelledby="tab-airbnb">
+        <div class="media-stack">
+          <img src="assets/img/bedroom.jpg" srcset="assets/img/bedroom-sm.jpg 540w, assets/img/bedroom.jpg 1080w" sizes="(min-width: 900px) 42vw, 88vw" width="1080" height="1440" alt="Four-poster bed made with fresh linens" loading="lazy">
+          <figure><img src="assets/img/fridge-sm.jpg" width="540" height="720" alt="Refrigerator emptied and cleaned between guests" loading="lazy"></figure>
+          <p class="media-stack__cap mono">Bed reset &amp; fridge clean-out</p>
         </div>
-        <p>Fast, consistent turnovers between guests: fresh linens, beds made, bathrooms and kitchen reset, and the place laid out the way your listing photos show it.</p>
-        <ul class="checklist">
-          <li>Linens changed and beds made</li>
-          <li>Full surface disinfecting &amp; tidy-up</li>
-          <li>Restocking essentials on request</li>
-          <li>Guest-ready every time</li>
-        </ul>
-      </article>
+        <div class="picker__body">
+          <h3>Airbnb &amp; rental turnovers</h3>
+          <p>Fast, consistent turnovers between guests. Fresh linens and made beds, bathrooms and kitchen reset, and the place laid out the way your listing photos show it, ready for the next check-in.</p>
+          <ul class="checklist checklist--2">
+            <li>Linens changed, beds made</li>
+            <li>Full surface disinfecting</li>
+            <li>Restocking on request</li>
+            <li>Guest-ready every time</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="contact/?service=airbnb#quote">Get a turnover quote</a>
+            <a class="link" href="services/#airbnb">More detail</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="service-extra">
-      <span>Also available: <strong>deep cleaning</strong> and <strong>move-in / move-out cleaning</strong>.</span>
-      <a class="link" href="services/">See all services</a>
+    <div class="also">
+      <a href="services/#deep"><span><strong>Deep cleaning</strong><span>When a space needs more than routine upkeep</span></span></a>
+      <a href="services/#move"><span><strong>Move-in / move-out</strong><span>Empty-home cleans for tenants, owners &amp; landlords</span></span></a>
     </div>
   </div>
 </section>
